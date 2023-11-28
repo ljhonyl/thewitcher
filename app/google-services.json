@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "112351266753",
+    "project_id": "thewitcher-54c99",
+    "storage_bucket": "thewitcher-54c99.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:112351266753:android:c92b439eabc9a7770dd140",
+        "android_client_info": {
+          "package_name": "es.tiernoparla.thewitcher"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDg0NMBOJAeKKJSGSsdv_C9BdkmcRzNU4I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

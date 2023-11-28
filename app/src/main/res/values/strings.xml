@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">thewitcher</string>
+    <string name="title">Login</string>
+    <string name="user">Usuario</string>
+    <string name="password">Contraseña</string>
+    <string name="login">Iniciar Sesión</string>
+    <string name="registrarse">Registrarse</string>
+</resources>

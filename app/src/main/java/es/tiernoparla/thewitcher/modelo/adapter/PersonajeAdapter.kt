@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import es.tiernoparla.thewitcher.R
 import es.tiernoparla.thewitcher.modelo.Personaje
 
-class PersonajeAdapter(private val listaPersonajes: List<Personaje>): RecyclerView.Adapter<PersonajeViewHolder>() {
+class PersonajeAdapter(private val listaPersonajes: List<Personaje>,private val itemClickListener: ItemClickListener): RecyclerView.Adapter<PersonajeViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PersonajeViewHolder {
         val layoutInflater=LayoutInflater.from(parent.context)
@@ -20,5 +20,6 @@ class PersonajeAdapter(private val listaPersonajes: List<Personaje>): RecyclerVi
     override fun onBindViewHolder(holder: PersonajeViewHolder, position: Int) {
         val item=listaPersonajes[position]
         holder.render(item)
+        holder.itemView.setOnClickListener{itemClickListener.onItemClick(item)}
     }
 }

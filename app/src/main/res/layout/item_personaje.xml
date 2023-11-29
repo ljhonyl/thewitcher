@@ -19,14 +19,17 @@
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"/>
+                app:layout_constraintStart_toStartOf="parent"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"/>
 
         <TextView
                 android:id="@+id/tvNombreItem"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:textSize="25sp"
                 android:layout_margin="8dp"
+                android:textAlignment="center"
                 tools:text="Geralt de rivia lobo blanco"
                 android:textStyle="bold"
                 android:singleLine="false"
@@ -36,15 +39,16 @@
 
         <TextView
                 android:id="@+id/tvAliasItem"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
                 android:layout_margin="8dp"
+                android:textAlignment="center"
                 tools:text="Lobo Blanco"
+                android:singleLine="false"
                 app:layout_constraintTop_toBottomOf="@id/tvNombreItem"
                 app:layout_constraintStart_toEndOf="@+id/ivFotoItem"
                 app:layout_constraintEnd_toEndOf="parent"/>
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

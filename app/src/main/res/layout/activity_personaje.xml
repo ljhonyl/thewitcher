@@ -2,23 +2,23 @@
 <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".vista.PersonajeActivity"
         android:orientation="vertical"
-        android:gravity="center|top">
+        android:gravity="center|top"
+        android:paddingHorizontal="15dp">
 
     <TextView
-            android:id="@+id/txtNombre"
+            android:id="@+id/tvNombrePersonaje"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            tools:text="Personaje"
+            android:layout_marginVertical="20dp"
             android:textSize="40sp"
-            android:layout_marginBottom="15dp"/>
+            tools:text="Geralt de Rivia"/>
 
     <ImageView
-            android:id="@+id/ivFoto"
+            android:id="@+id/ivFotoPersonaje"
             android:layout_width="350dp"
             android:layout_height="350dp"
             android:layout_marginBottom="15dp">
@@ -26,12 +26,28 @@
     </ImageView>
 
     <TextView
-            android:id="@+id/alias"
+            android:id="@+id/tvAliasPersonaje"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="8dp"
+            android:textSize="17sp"
+            tools:text="Nombre"/>
+
     <TextView
-            android:id="@+id/descripcion"
+            android:id="@+id/tvRazaPersonaje"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="8dp"
+            android:textSize="17sp"
+            tools:text="Alias"/>
+
+    <TextView
+            android:id="@+id/tvDescripcionPersonaje"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="8dp"
+            android:textSize="17sp"
+            android:textStyle="italic"
+            tools:text="Geralt de Rivia es un brujo, cazador de monstruos mutado con cabello blanco y habilidades sobrenaturales. Destaca por su destreza en la lucha, su armadura distintiva y su naturaleza pragmática. Geralt se enfrenta a dilemas morales, desarrolla relaciones con otros personajes y navega por un mundo lleno de magia, conflictos y criaturas sobrenaturales. Su historia se caracteriza por una combinación de acción, drama y decisiones impactantes."/>
 
 </LinearLayout>

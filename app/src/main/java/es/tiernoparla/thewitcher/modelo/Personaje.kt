@@ -1,3 +1,7 @@
 package es.tiernoparla.thewitcher.modelo
 
-data class Personaje (val codigo:Int,val nombre:String,val alias:String,val raza:String,val descripcion:String,val imagen:String)
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
+data class Personaje (val nombre:String,val alias:String,val raza:String,val descripcion:String,val imagen:String): Parcelable

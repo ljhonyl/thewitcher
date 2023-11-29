@@ -6,7 +6,7 @@ import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import es.tiernoparla.thewitcher.modelo.Personaje
-import es.tiernoparla.thewitcher.modelo.PersonajesMock.PersonajesMock
+import es.tiernoparla.thewitcher.modelo.FicheroMock.FicheroMock
 
 class BaseDatosDAO (context : Context?, name : String?, factory : SQLiteDatabase.CursorFactory?, version: Int) : SQLiteOpenHelper(context, name, factory, version) {
 
@@ -47,9 +47,9 @@ class BaseDatosDAO (context : Context?, name : String?, factory : SQLiteDatabase
     }
 
     private fun cargaInicialTabla(db: SQLiteDatabase?) {
-        val personajesMock = PersonajesMock()
+        val ficheroMock = FicheroMock()
 
-        for (personaje in personajesMock.getListaPersonajes()) {
+        for (personaje in ficheroMock.getListaPersonajes()) {
             val cv = ContentValues()
             cv.put("Codigo", personaje.codigo)
             cv.put("Nombre", personaje.nombre)

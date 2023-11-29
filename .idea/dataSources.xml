@@ -13,5 +13,20 @@
         </library>
       </libraries>
     </data-source>
+    <data-source source="LOCAL" name="Personajes [2]" uuid="c559506e-3db5-40fd-a64e-125246ca4df6">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:C:\Users\diurno\AppData\Local\JetBrains\IntelliJIdea2023.2\device-explorer\Pixel_3a_API_34_extension_level_7_x86_64\data\data\es.tiernoparla.thewitcher\databases\Personajes</jdbc-url>
+      <jdbc-additional-properties>
+        <property name="com.intellij.clouds.kubernetes.db.enabled" value="false" />
+      </jdbc-additional-properties>
+      <working-dir>$ProjectFileDir$</working-dir>
+      <libraries>
+        <library>
+          <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/Xerial SQLiteJDBC/3.43.0/org/xerial/sqlite-jdbc/3.43.0.0/sqlite-jdbc-3.43.0.0.jar</url>
+        </library>
+      </libraries>
+    </data-source>
   </component>
 </project>

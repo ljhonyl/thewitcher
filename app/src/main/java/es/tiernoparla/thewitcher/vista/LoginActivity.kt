@@ -25,6 +25,7 @@ class LoginActivity : AppCompatActivity() {
                         mostrarMenu()
                     }
                     else{
+                        mostrarAviso("ERROR","Usuario no registrado")
                     }
                 }
             }

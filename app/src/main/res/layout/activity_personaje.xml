@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
@@ -51,3 +56,4 @@
             tools:text="Geralt de Rivia es un brujo, cazador de monstruos mutado con cabello blanco y habilidades sobrenaturales. Destaca por su destreza en la lucha, su armadura distintiva y su naturaleza pragmática. Geralt se enfrenta a dilemas morales, desarrolla relaciones con otros personajes y navega por un mundo lleno de magia, conflictos y criaturas sobrenaturales. Su historia se caracteriza por una combinación de acción, drama y decisiones impactantes."/>
 
 </LinearLayout>
+</ScrollView>

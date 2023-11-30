@@ -49,14 +49,24 @@ class BaseDatosDAO (context : Context?, name : String?, factory : SQLiteDatabase
         val ficheroMock = FicheroMock()
 
         for (personaje in ficheroMock.getListaPersonajes()) {
-            val cv = ContentValues()
-            cv.put("Nombre", personaje.nombre)
-            cv.put("Alias", personaje.alias)
-            cv.put("Raza", personaje.raza)
-            cv.put("Descripcion", personaje.descripcion)
-            cv.put("Imagen", personaje.imagen)
-
-            db?.insert("Personajes", null, cv)
+            val contentValues=generarContentValues(personaje)
+            db?.insert("Personajes", null, contentValues)
         }
+    }
+
+    fun insertar(personaje:Personaje){
+        val db=this.writableDatabase
+        val contentValues=generarContentValues(personaje)
+        db?.insert("Personajes",null,contentValues)
+    }
+
+    private fun generarContentValues(personaje: Personaje): ContentValues{
+        val cv = ContentValues()
+        cv.put("Nombre", personaje.nombre)
+        cv.put("Alias", personaje.alias)
+        cv.put("Raza", personaje.raza)
+        cv.put("Descripcion", personaje.descripcion)
+        cv.put("Imagen", personaje.imagen)
+        return  cv
     }
 }

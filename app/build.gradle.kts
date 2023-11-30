@@ -55,4 +55,6 @@ dependencies {
     implementation("com.google.firebase:firebase-auth-ktx")
     //glide
     implementation("com.github.bumptech.glide:glide:4.16.0")
+    //SelectPicker, para seleccionar imágenes
+    implementation("androidx.activity:activity:1.7.0")
 }

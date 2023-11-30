@@ -1,8 +1,16 @@
 <resources>
-    <string name="app_name">thewitcher</string>
+    <string name="app_name">The Witcher App</string>
     <string name="title">Login</string>
     <string name="user">Usuario</string>
     <string name="password">Contraseña</string>
     <string name="login">Iniciar Sesión</string>
+    <string name="addPersonaje">Añadir Personaje</string>
     <string name="registrarse">Registrarse</string>
+    <string name="nombre">Nombre</string>
+    <string name="alias">Alias</string>
+    <string name="raza">Raza</string>
+    <string name="descripcion">Descripcion</string>
+    <string name="imagen">Imagen</string>
+    <string name="seleccionarImagen">Seleccionar Imagen</string>
+    <string name="eliminarPersonaje">Eliminar Personaje</string>
 </resources>

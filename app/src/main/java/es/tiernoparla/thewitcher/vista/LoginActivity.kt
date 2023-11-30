@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
 import com.google.firebase.auth.FirebaseAuth
+import es.tiernoparla.thewitcher.Auxiliar
 import es.tiernoparla.thewitcher.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity() {
@@ -17,7 +18,11 @@ class LoginActivity : AppCompatActivity() {
         iniciarSesion()
         registrase()
     }
-    fun iniciarSesion(){
+
+    /**
+     * Lógica que se ejecutará al querer iniciar sesión
+     */
+    private fun iniciarSesion(){
         binding.btnLogin.setOnClickListener(){
             if (binding.etUsuario.text.isNotEmpty() && binding.etPassword.text.isNotEmpty()){
                 FirebaseAuth.getInstance().signInWithEmailAndPassword(binding.etUsuario.text.toString(),binding.etPassword.text.toString()).addOnCompleteListener {
@@ -25,35 +30,46 @@ class LoginActivity : AppCompatActivity() {
                         mostrarMenu()
                     }
                     else{
-                        mostrarAviso("ERROR","Usuario no registrado")
+                        val msg="Error al iniciar sesión"
+                        Auxiliar.mostrarAviso(this,Auxiliar.TIPO_ERROR,msg)
                     }
                 }
             }
+            else{
+                val msg="Error al iniciar sesión"
+                Auxiliar.mostrarAviso(this,Auxiliar.TIPO_ERROR,msg)
+            }
         }
     }
-    fun registrase(){
+
+    /**
+     * Lógica que se ejecutará al querer registrarse
+     */
+    private fun registrase(){
         binding.etRegistrarse.setOnClickListener(){
             if (binding.etUsuario.text.isNotEmpty() && binding.etPassword.text.isNotEmpty()){
                 FirebaseAuth.getInstance().createUserWithEmailAndPassword(binding.etUsuario.text.toString(),binding.etPassword.text.toString()).addOnCompleteListener {
                     if(it.isSuccessful){
-                        mostrarAviso("AVISO","Usuario registrado correctamente")
+                        val msg="Registro exitoso"
+                        Auxiliar.mostrarAviso(this,Auxiliar.TIPO_AVISO,msg)
                     }
                     else{
-                        mostrarAviso("ERROR","Se ha producido un error")
+                        val msg="Se ha producido un error"
+                        Auxiliar.mostrarAviso(this,Auxiliar.TIPO_ERROR,msg)
                     }
                 }
             }
+            else{
+                val msg="Se ha producido un error"
+                Auxiliar.mostrarAviso(this,Auxiliar.TIPO_ERROR,msg)
+            }
         }
     }
-    fun mostrarAviso(tipo: String, msg: String){
-        val builder=AlertDialog.Builder(this)
-        builder.setTitle(tipo)
-        builder.setMessage(msg)
-        builder.setPositiveButton("Aceptar",null)
-        val dialog: AlertDialog=builder.create()
-        dialog.show()
-    }
-    fun mostrarMenu(){
+
+    /**
+     * Cambio de vista a la vista del menú
+     */
+    private fun mostrarMenu(){
         val intent:Intent=Intent(this, MenuActivity::class.java)
         startActivity(intent)
         this.finish()

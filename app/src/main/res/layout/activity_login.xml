@@ -6,72 +6,82 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".vista.LoginActivity">
+
     <LinearLayout
+            app:layout_constraintBottom_toTopOf="@+id/lLayoutContenido"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toTopOf="@+id/lLayoutContenido"
-            android:gravity="center"
-            android:layout_margin="50dp">
+            android:layout_margin="50dp"
+            android:gravity="center">
+
         <TextView
                 android:id="@+id/tvTitulo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/title"
                 android:textSize="40sp"
-                android:paddingTop="30dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:textAllCaps="true"/>
+                android:textAllCaps="true"
+        android:paddingTop="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
     </LinearLayout>
+
     <LinearLayout
             android:id="@+id/lLayoutContenido"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            android:layout_margin="15dp"
             android:orientation="vertical"
-            android:layout_margin="15dp">
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/user"
                 android:textSize="15sp"/>
+
         <EditText
                 android:id="@+id/etUsuario"
-                android:inputType="textEmailAddress"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:autofillHints="emailAddress"
                 android:textSize="15sp"
                 android:layout_marginBottom="12dp"/>
+
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/password"
                 android:textSize="15sp"/>
+
         <EditText
                 android:id="@+id/etPassword"
-                android:inputType="textPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:autofillHints="password"
                 android:textSize="15sp"/>
+
         <Button
                 android:id="@+id/btnLogin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="@string/login">
+                android:text="@string/login"
+                android:layout_marginTop="20dp">
 
         </Button>
+
         <TextView
                 android:id="@+id/etRegistrarse"
                 android:text="@string/registrarse"
                 android:gravity="center"
+                android:textSize="15sp"
                 android:layout_marginTop="20dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="15sp"/>
+                android:layout_height="wrap_content"/>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

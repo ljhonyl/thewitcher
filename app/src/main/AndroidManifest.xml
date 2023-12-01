@@ -12,7 +12,7 @@
             android:label="@string/app_name"
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
-            android:theme="@style/Theme.MenuActivity"
+            android:theme="@style/Theme.Thewitcher"
             tools:targetApi="31">
         <activity
                 android:name=".vista.InsercionActivity"
@@ -23,17 +23,18 @@
                 android:parentActivityName=".vista.MenuActivity"/>
         <activity
                 android:name=".vista.MenuActivity"
-                android:exported="true">
+                android:exported="false">
+
+        </activity>
+        <activity
+                android:name=".vista.LoginActivity"
+                android:exported="true"
+                android:theme="@style/Theme.CargaActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
-        </activity>
-        <activity
-                android:name=".vista.LoginActivity"
-                android:exported="false">
-
         </activity>
     </application>
 

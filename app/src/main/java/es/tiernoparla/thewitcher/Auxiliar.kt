@@ -17,8 +17,13 @@ abstract class Auxiliar {
      * @param msg mensaje del alertdialog
      */
     companion object{
-        private var OK="Ok"
-        private  var CANCELAR="Cancelar"
+        var OK="Ok"
+        var CANCELAR="Cancelar"
+        var TIPO_AVISO="Aviso"
+        var TIPO_ERROR="Error"
+        var BOTON_SIMPLE=true
+        var BOTON_DOBLE=false
+
         fun mostrarAviso(context: Context, tipo: String, botonSimple: Boolean, msg: String){
             if (botonSimple){
                 val builder= AlertDialog.Builder(context)
@@ -36,12 +41,7 @@ abstract class Auxiliar {
                 val dialog: AlertDialog =builder.create()
                 dialog.show()
             }
-
         }
-        var TIPO_AVISO="Aviso"
-        var TIPO_ERROR="Error"
-        var BOTON_SIMPLE=true
-        var BOTON_DOBLE=false
     }
 
 

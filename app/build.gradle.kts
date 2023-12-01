@@ -57,4 +57,8 @@ dependencies {
     implementation("com.github.bumptech.glide:glide:4.16.0")
     //SelectPicker, para seleccionar imágenes
     implementation("androidx.activity:activity:1.7.0")
+    //Imports necesarios para el mvvm y el lifedata
+    implementation("androidx.lifecycle:lifecycle-viewmodel:2.6.2")
+    implementation("androidx.lifecycle:lifecycle-livedata:2.6.2")
+
 }

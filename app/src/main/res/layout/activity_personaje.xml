@@ -111,6 +111,7 @@
             android:layout_marginEnd="17dp"
             android:text="@string/eliminarPersonaje"
             android:layout_marginBottom="30dp"
+            android:backgroundTint="@color/rojo"
             android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true">
 

@@ -3,8 +3,10 @@ package es.tiernoparla.thewitcher.vista
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts.PickVisualMedia
+import es.tiernoparla.thewitcher.Auxiliar
 import es.tiernoparla.thewitcher.databinding.ActivityInsercionBinding
 import es.tiernoparla.thewitcher.modelo.Personaje
 import es.tiernoparla.thewitcher.modelo.basedatos.BaseDatosDAO
@@ -38,6 +40,7 @@ class InsercionActivity : AppCompatActivity() {
      * Inserción de un nuevo personaje en la base de datos
      */
     fun insertarPerosnaje(){
+        var msg="Los campos nombre, descripción e imagen no pueden estar vacíos"
         binding.btnInsertar.setOnClickListener(){
             if(binding.etNombreInsertar.text.isNotEmpty() && binding.etDescripcionInsertar.text.isNotEmpty() && binding.tvImgInsertada.text.isNotEmpty()){
                 val nombre=binding.etNombreInsertar.text.toString()
@@ -49,9 +52,11 @@ class InsercionActivity : AppCompatActivity() {
 
                 val db=BaseDatosDAO(this,"Personajes",null,1)
                 db.insertar(personaje)
+                msg="Personaje insertado"
+                Toast.makeText(this,msg,Toast.LENGTH_SHORT).show()
             }
             else{
-
+                Auxiliar.mostrarAviso(this,Auxiliar.TIPO_ERROR,Auxiliar.BOTON_SIMPLE,msg)
             }
         }
     }

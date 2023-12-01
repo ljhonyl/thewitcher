@@ -1,14 +1,19 @@
 package es.tiernoparla.thewitcher.vista
 
+import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
+import es.tiernoparla.thewitcher.Auxiliar
 import es.tiernoparla.thewitcher.databinding.ActivityMenuBinding
 import es.tiernoparla.thewitcher.modelo.Personaje
 import es.tiernoparla.thewitcher.modelo.adapter.ItemClickListener
 import es.tiernoparla.thewitcher.modelo.adapter.PersonajeAdapter
 import es.tiernoparla.thewitcher.modelo.basedatos.BaseDatosDAO
+import kotlin.system.exitProcess
 
 class MenuActivity : AppCompatActivity() {
 
@@ -26,8 +31,8 @@ class MenuActivity : AppCompatActivity() {
      * Función que recogerá la información necesaria para ser mostrada en el recyclerview
      * También se definirá el adapter del mismo
      */
-    fun cargarRecyclerView(){
-        var bd=BaseDatosDAO(this,"Personajes",null,1)
+    private fun cargarRecyclerView(){
+        val bd=BaseDatosDAO(this,"Personajes",null,1)
         val listaPersonajes: List<Personaje> = bd.seleccionarPersonajes()
 
         //Impementacion de la interfaz por medio de un objeto sencillo
@@ -57,16 +62,37 @@ class MenuActivity : AppCompatActivity() {
     /**
      * Navegación a la vista de inserción
      */
-    fun mostrarVistaInsertar(){
-        binding.fabInsertar.setOnClickListener(){
+    private fun mostrarVistaInsertar(){
+        //Los paréntesis de los métodos no son necesarios cuando se usa una función lambda
+        binding.fabInsertar.setOnClickListener{
             val intent=Intent(this,InsercionActivity::class.java)
             startActivity(intent)
             this.finish()
         }
     }
 
+    /**
+     * Método que permite controlar los botones de confirmación y negación del
+     * AlertDialog
+     */
+    private fun salirApp(){
+        val msg="¿Salir de la app?"
+        val builder = AlertDialog.Builder(this)
+
+        builder.setTitle(Auxiliar.TIPO_AVISO)
+            .setMessage(msg)
+            .setPositiveButton(Auxiliar.OK) { _, _ ->
+                this.finishAffinity()
+            }
+            .setNegativeButton(Auxiliar.CANCELAR) { dialog, _ ->
+                dialog.dismiss()
+            }
+        val dialog: AlertDialog= builder.create()
+        dialog.show()
+    }
+
     @Deprecated("Deprecated in Java")
     override fun onBackPressed() {
-        super.onBackPressed()
+        salirApp()
     }
 }

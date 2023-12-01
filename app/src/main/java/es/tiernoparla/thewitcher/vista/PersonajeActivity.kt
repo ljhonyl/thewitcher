@@ -38,9 +38,12 @@ class PersonajeActivity : AppCompatActivity() {
      * Método por el cual se eliminara el personaje
      */
     private fun eliminarPersonaje(){
-        val db=BaseDatosDAO(this,"Personajes",null,1)
-        db.eliminarPersonaje(personaje)
-        onBackPressed()
+        binding.fabEliminarPersonaje.setOnClickListener(){
+            val db=BaseDatosDAO(this,"Personajes",null,1)
+            db.eliminarPersonaje(personaje)
+            onBackPressed()
+        }
+
     }
     @Deprecated("Deprecated in Java")
     override fun onBackPressed() {

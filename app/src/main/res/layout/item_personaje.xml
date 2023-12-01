@@ -2,11 +2,12 @@
 <!-- Layout que funcionara como tarjeta en cada seccion del recyclerview -->
 <androidx.cardview.widget.CardView
         xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_marginVertical="8dp"
+        app:cardBackgroundColor="@color/colorTarjetas"
         app:cardCornerRadius="20dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout

@@ -5,14 +5,11 @@
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
-    <style name="Theme.MenuActivity" parent="Theme.AppCompat.NoActionBar">
-        <item name="colorPrimary">@color/colorFondo</item>
-        <item name="colorPrimaryVariant">@color/colorTarjetas</item>
-        <item name="colorOnPrimary">@color/colorTarjetas</item>
-
-        <!-- Color de la barra de notificaciones-->
+    <style name="Theme.MenuActivity" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorSecondary">@color/colorBoton</item>
+        <item name="android:colorBackground">@color/colorFondo</item>
         <item name="android:statusBarColor">@color/colorFondo</item>
-
+        <item name="android:textColor">@color/white</item>
     </style>
     <style name="Theme.Thewitcher" parent="Base.Theme.Thewitcher"/>
 </resources>

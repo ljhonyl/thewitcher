@@ -3,6 +3,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
+    <color name="rojo">#E81616</color>
     <!-- ActivityMenu-->
     <color name="colorFondo">#171717</color>
     <color name="colorTarjetas">#2D3037</color>

@@ -61,11 +61,11 @@ class BaseDatosDAO (context : Context?, name : String?, factory : SQLiteDatabase
     }
 
     fun eliminarPersonaje(personaje: Personaje){
-
+        val query="DELETE FROM Personajes where Codigo=(?)"
         val db=this.writableDatabase
-        val nombre=personaje.nombre
-        val values= arrayOf(nombre)
-        db?.delete("Personajes","Nombre",values)
+        val id=personaje.id
+        val values= arrayOf(id)
+        db.execSQL(query,values)
     }
 
     private fun generarContentValues(personaje: Personaje): ContentValues{

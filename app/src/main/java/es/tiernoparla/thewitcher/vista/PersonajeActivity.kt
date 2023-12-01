@@ -6,14 +6,17 @@ import android.os.Bundle
 import com.bumptech.glide.Glide
 import es.tiernoparla.thewitcher.databinding.ActivityPersonajeBinding
 import es.tiernoparla.thewitcher.modelo.Personaje
+import es.tiernoparla.thewitcher.modelo.basedatos.BaseDatosDAO
 
 class PersonajeActivity : AppCompatActivity() {
     private lateinit var  binding: ActivityPersonajeBinding
+    private lateinit var personaje: Personaje
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding=ActivityPersonajeBinding.inflate(layoutInflater)
         setContentView(binding.root)
         cargarDetallesPersonajes()
+        eliminarPersonaje()
     }
 
     /**
@@ -21,7 +24,7 @@ class PersonajeActivity : AppCompatActivity() {
      * de los extras que se le pasó en la vista anterior
      */
     private fun cargarDetallesPersonajes(){
-        val personaje=intent.getParcelableExtra<Personaje>("personaje")!!
+        personaje=intent.getParcelableExtra<Personaje>("personaje")!!
         if(personaje!=null){
             binding.tvNombrePersonaje.text=personaje.nombre
             Glide.with(this).load(personaje.imagen).into(binding.ivFotoPersonaje)
@@ -31,6 +34,14 @@ class PersonajeActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * Método por el cual se eliminara el personaje
+     */
+    private fun eliminarPersonaje(){
+        val db=BaseDatosDAO(this,"Personajes",null,1)
+        db.eliminarPersonaje(personaje)
+        onBackPressed()
+    }
     @Deprecated("Deprecated in Java")
     override fun onBackPressed() {
         super.onBackPressed()

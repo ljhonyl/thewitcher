@@ -23,6 +23,7 @@
                 android:parentActivityName=".vista.MenuActivity"/>
         <activity
                 android:name=".vista.MenuActivity"
+                android:theme="@style/Theme.MenuActivity"
                 android:exported="false"/>
         <activity
                 android:name=".vista.LoginActivity"

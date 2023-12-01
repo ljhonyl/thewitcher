@@ -31,13 +31,13 @@ class LoginActivity : AppCompatActivity() {
                     }
                     else{
                         val msg="Error al iniciar sesión"
-                        Auxiliar.mostrarAviso(this,Auxiliar.TIPO_ERROR,msg)
+                        Auxiliar.mostrarAviso(this,Auxiliar.TIPO_ERROR, Auxiliar.BOTON_SIMPLE, msg)
                     }
                 }
             }
             else{
                 val msg="Error al iniciar sesión"
-                Auxiliar.mostrarAviso(this,Auxiliar.TIPO_ERROR,msg)
+                Auxiliar.mostrarAviso(this,Auxiliar.TIPO_ERROR, Auxiliar.BOTON_DOBLE, msg)
             }
         }
     }
@@ -51,17 +51,17 @@ class LoginActivity : AppCompatActivity() {
                 FirebaseAuth.getInstance().createUserWithEmailAndPassword(binding.etUsuario.text.toString(),binding.etPassword.text.toString()).addOnCompleteListener {
                     if(it.isSuccessful){
                         val msg="Registro exitoso"
-                        Auxiliar.mostrarAviso(this,Auxiliar.TIPO_AVISO,msg)
+                        Auxiliar.mostrarAviso(this,Auxiliar.TIPO_AVISO,Auxiliar.BOTON_SIMPLE, msg)
                     }
                     else{
                         val msg="Se ha producido un error"
-                        Auxiliar.mostrarAviso(this,Auxiliar.TIPO_ERROR,msg)
+                        Auxiliar.mostrarAviso(this,Auxiliar.TIPO_ERROR,Auxiliar.BOTON_SIMPLE, msg)
                     }
                 }
             }
             else{
                 val msg="Se ha producido un error"
-                Auxiliar.mostrarAviso(this,Auxiliar.TIPO_ERROR,msg)
+                Auxiliar.mostrarAviso(this,Auxiliar.TIPO_ERROR,Auxiliar.BOTON_SIMPLE, msg)
             }
         }
     }

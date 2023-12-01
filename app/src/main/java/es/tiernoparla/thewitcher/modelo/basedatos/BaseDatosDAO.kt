@@ -28,14 +28,14 @@ class BaseDatosDAO (context : Context?, name : String?, factory : SQLiteDatabase
         val cursor: Cursor = db.rawQuery(query, null)
         if (cursor.moveToFirst()) {
             do {
+                val codigo=cursor.getInt(cursor.getColumnIndexOrThrow("Codigo"))
                 val nombre = cursor.getString(cursor.getColumnIndexOrThrow("Nombre"))
                 val alias = cursor.getString(cursor.getColumnIndexOrThrow("Alias"))
                 val raza = cursor.getString(cursor.getColumnIndexOrThrow("Raza"))
                 val descripcion = cursor.getString(cursor.getColumnIndexOrThrow("Descripcion"))
                 val imagen = cursor.getString(cursor.getColumnIndexOrThrow("Imagen"))
 
-
-                val personaje = Personaje(nombre, alias, raza, descripcion, imagen)
+                val personaje = Personaje(codigo,nombre, alias, raza, descripcion, imagen)
                 listaPersonajes.add(personaje)
             } while (cursor.moveToNext())
         }
@@ -58,6 +58,14 @@ class BaseDatosDAO (context : Context?, name : String?, factory : SQLiteDatabase
         val db=this.writableDatabase
         val contentValues=generarContentValues(personaje)
         db?.insert("Personajes",null,contentValues)
+    }
+
+    fun eliminarPersonaje(personaje: Personaje){
+
+        val db=this.writableDatabase
+        val nombre=personaje.nombre
+        val values= arrayOf(nombre)
+        db?.delete("Personajes","Nombre",values)
     }
 
     private fun generarContentValues(personaje: Personaje): ContentValues{

@@ -18,16 +18,30 @@ abstract class Auxiliar {
      */
     companion object{
         private var OK="Ok"
-        fun mostrarAviso(context: Context, tipo: String, msg: String){
-            val builder= AlertDialog.Builder(context)
-            builder.setTitle(tipo)
-            builder.setMessage(msg)
-            builder.setPositiveButton(OK,null)
-            val dialog: AlertDialog =builder.create()
-            dialog.show()
+        private  var CANCELAR="Cancelar"
+        fun mostrarAviso(context: Context, tipo: String, botonSimple: Boolean, msg: String){
+            if (botonSimple){
+                val builder= AlertDialog.Builder(context)
+                builder.setTitle(tipo)
+                builder.setMessage(msg)
+                builder.setPositiveButton(OK,null)
+                val dialog: AlertDialog =builder.create()
+                dialog.show()
+            }else{
+                val builder= AlertDialog.Builder(context)
+                builder.setTitle(tipo)
+                builder.setMessage(msg)
+                builder.setNegativeButton(CANCELAR,null)
+                builder.setPositiveButton(OK,null)
+                val dialog: AlertDialog =builder.create()
+                dialog.show()
+            }
+
         }
         var TIPO_AVISO="Aviso"
         var TIPO_ERROR="Error"
+        var BOTON_SIMPLE=true
+        var BOTON_DOBLE=false
     }
 
 

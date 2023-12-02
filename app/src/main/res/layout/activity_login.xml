@@ -16,9 +16,9 @@
 
         <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:src="@drawable/imagen_carga"
-                android:paddingTop="10dp"/>
+                android:layout_height="160dp"
+                android:src="@drawable/escuela_lobo3"
+                android:scaleType="fitCenter"/>
 
         <TextView
                 android:id="@+id/tvTitulo"

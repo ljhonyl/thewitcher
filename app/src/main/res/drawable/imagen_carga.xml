@@ -3,8 +3,8 @@
 <!-- Se usara para mostrarse de fondo al inicio de la aplicación -->
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android" android:opacity="opaque">
     <item android:drawable="@color/colorFondo"/>
-    <item android:left="10dp" android:right="10dp" android:top="140dp" android:bottom="140dp">
+    <item android:left="10dp" android:right="10dp" android:top="240dp" android:bottom="240dp">
 
-        <bitmap android:src="@drawable/escuela_lobo5"/>
+        <bitmap android:src="@drawable/escuela_lobo3"/>
     </item>
 </layer-list>

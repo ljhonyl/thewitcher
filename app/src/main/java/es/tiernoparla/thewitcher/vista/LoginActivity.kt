@@ -3,12 +3,15 @@ package es.tiernoparla.thewitcher.vista
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.appcompat.app.AlertDialog
 import com.google.firebase.auth.FirebaseAuth
 import es.tiernoparla.thewitcher.Auxiliar
 import es.tiernoparla.thewitcher.R
 import es.tiernoparla.thewitcher.databinding.ActivityLoginBinding
 
+/**
+ * Vista de login
+ * @author jhony
+ */
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
 
@@ -33,13 +36,13 @@ class LoginActivity : AppCompatActivity() {
                     }
                     else{
                         val msg="Error al iniciar sesión"
-                        Auxiliar.mostrarAviso(this,Auxiliar.TIPO_ERROR, Auxiliar.BOTON_SIMPLE, msg)
+                        Auxiliar.mostrarAviso(this, Auxiliar.TIPO_ERROR, msg)
                     }
                 }
             }
             else{
                 val msg="Error al iniciar sesión"
-                Auxiliar.mostrarAviso(this,Auxiliar.TIPO_ERROR, Auxiliar.BOTON_DOBLE, msg)
+                Auxiliar.mostrarAviso(this, Auxiliar.TIPO_ERROR, msg)
             }
         }
     }
@@ -53,17 +56,17 @@ class LoginActivity : AppCompatActivity() {
                 FirebaseAuth.getInstance().createUserWithEmailAndPassword(binding.etUsuario.text.toString(),binding.etPassword.text.toString()).addOnCompleteListener {
                     if(it.isSuccessful){
                         val msg="Registro exitoso"
-                        Auxiliar.mostrarAviso(this,Auxiliar.TIPO_AVISO,Auxiliar.BOTON_SIMPLE, msg)
+                        Auxiliar.mostrarAviso(this, Auxiliar.TIPO_AVISO, msg)
                     }
                     else{
                         val msg="Se ha producido un error"
-                        Auxiliar.mostrarAviso(this,Auxiliar.TIPO_ERROR,Auxiliar.BOTON_SIMPLE, msg)
+                        Auxiliar.mostrarAviso(this, Auxiliar.TIPO_ERROR, msg)
                     }
                 }
             }
             else{
                 val msg="Se ha producido un error"
-                Auxiliar.mostrarAviso(this,Auxiliar.TIPO_ERROR,Auxiliar.BOTON_SIMPLE, msg)
+                Auxiliar.mostrarAviso(this, Auxiliar.TIPO_ERROR, msg)
             }
         }
     }

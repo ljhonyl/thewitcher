@@ -1,32 +1,54 @@
 package es.tiernoparla.thewitcher.vista
 
-import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
+import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
 import es.tiernoparla.thewitcher.Auxiliar
 import es.tiernoparla.thewitcher.databinding.ActivityMenuBinding
 import es.tiernoparla.thewitcher.modelo.Personaje
-import es.tiernoparla.thewitcher.modelo.adapter.ItemClickListener
-import es.tiernoparla.thewitcher.modelo.adapter.PersonajeAdapter
+import es.tiernoparla.thewitcher.vista.adapter.ItemClickListener
+import es.tiernoparla.thewitcher.vista.adapter.PersonajeAdapter
 import es.tiernoparla.thewitcher.modelo.basedatos.BaseDatosDAO
-import kotlin.system.exitProcess
+import es.tiernoparla.thewitcher.vistamodelo.PersonajeVistaModelo
+import es.tiernoparla.thewitcher.vistamodelo.PersonajeVistaModeloFactory
 
+/**
+ * Vista de la lista
+ * @author jhony
+ */
 class MenuActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMenuBinding
+    private val personajeVistaModelo: PersonajeVistaModelo by viewModels{PersonajeVistaModeloFactory(BaseDatosDAO(this,"Personajes",null,1))}
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding=ActivityMenuBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        cargarRecyclerView()
+        personajeVistaModelo.listaPersonajes.observe(this){ listaPersonajes->
+            actualizarRecyclerView(listaPersonajes)
+        }
         mostrarVistaInsertar()
     }
 
+    /**
+     * Carga el recyclerView a través del observe
+     */
+    private fun actualizarRecyclerView(listaPersonajes:List<Personaje>){
+        //Impementacion de la interfaz por medio de un objeto sencillo
+        val itemClickListener= object : ItemClickListener {
+            override fun onItemClick(personaje: Personaje) {
+                mostrarVistaPersonaje(personaje)
+            }
+        }
+        binding.recyclerPersonjes.layoutManager=LinearLayoutManager(this)
+        binding.recyclerPersonjes.adapter= PersonajeAdapter(listaPersonajes,itemClickListener)
+    }
+
+    @Deprecated("Metodo usado usando solo vista y modelo, reemplazado por actualizarRecyclerView")
     /**
      * Función que recogerá la información necesaria para ser mostrada en el recyclerview
      * También se definirá el adapter del mismo
@@ -42,16 +64,16 @@ class MenuActivity : AppCompatActivity() {
             }
         }
         binding.recyclerPersonjes.layoutManager=LinearLayoutManager(this)
-        binding.recyclerPersonjes.adapter=PersonajeAdapter(listaPersonajes,itemClickListener)
+        binding.recyclerPersonjes.adapter= PersonajeAdapter(listaPersonajes,itemClickListener)
     }
 
     /**
      * Metodo que se ejecutará al pulsar un item en el reciclerview
      * Nos mostrara la informacion completa del personaje
-     * @param personaje variable que sera parcelizada para poder pasar el objeto
-     * a la vista en detalle del personaje
+     * @param personaje variable que será parcelizada para poder pasar el objeto
+     * a la vista PersonajeActivity
      */
-    fun mostrarVistaPersonaje(personaje: Personaje){
+    private fun mostrarVistaPersonaje(personaje: Personaje){
             val intent=Intent(this, PersonajeActivity::class.java)
             intent.putExtra("personaje",personaje)
             startActivity(intent)

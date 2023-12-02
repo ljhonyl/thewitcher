@@ -58,7 +58,8 @@ dependencies {
     //SelectPicker, para seleccionar imágenes
     implementation("androidx.activity:activity:1.7.0")
     //Imports necesarios para el mvvm y el lifedata
-    implementation("androidx.lifecycle:lifecycle-viewmodel:2.6.2")
+    implementation("androidx.activity:activity-ktx:1.7.0")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
     implementation("androidx.lifecycle:lifecycle-livedata:2.6.2")
 
 }

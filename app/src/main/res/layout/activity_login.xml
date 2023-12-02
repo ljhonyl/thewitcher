@@ -55,6 +55,7 @@
                 android:inputType="textEmailAddress"
                 android:autofillHints="emailAddress"
                 android:textSize="15sp"
+                android:imeOptions="actionDone"
                 android:layout_marginBottom="12dp"/>
 
         <TextView
@@ -69,7 +70,8 @@
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
                 android:autofillHints="password"
-                android:textSize="15sp"/>
+                android:textSize="15sp"
+                android:imeOptions="actionDone"/>
 
         <Button
                 android:id="@+id/btnLogin"

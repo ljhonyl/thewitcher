@@ -7,7 +7,7 @@ import androidx.appcompat.app.AlertDialog
  * Clase que servirá de auxiliar para no duplicar el mismo código
  * en diferentes clases
  */
-abstract class Auxiliar {
+class Auxiliar {
 
     /**
      * Companion object (estático) para que sea utiliazado a nivel de
@@ -21,28 +21,14 @@ abstract class Auxiliar {
         var CANCELAR="Cancelar"
         var TIPO_AVISO="Aviso"
         var TIPO_ERROR="Error"
-        var BOTON_SIMPLE=true
-        var BOTON_DOBLE=false
 
-        fun mostrarAviso(context: Context, tipo: String, botonSimple: Boolean, msg: String){
-            if (botonSimple){
-                val builder= AlertDialog.Builder(context)
-                builder.setTitle(tipo)
-                builder.setMessage(msg)
-                builder.setPositiveButton(OK,null)
-                val dialog: AlertDialog =builder.create()
-                dialog.show()
-            }else{
-                val builder= AlertDialog.Builder(context)
-                builder.setTitle(tipo)
-                builder.setMessage(msg)
-                builder.setNegativeButton(CANCELAR,null)
-                builder.setPositiveButton(OK,null)
-                val dialog: AlertDialog =builder.create()
-                dialog.show()
-            }
+        fun mostrarAviso(context: Context, tipo: String, msg: String){
+            val builder= AlertDialog.Builder(context)
+            builder.setTitle(tipo)
+            builder.setMessage(msg)
+            builder.setPositiveButton(OK,null)
+            val dialog: AlertDialog =builder.create()
+            dialog.show()
         }
     }
-
-
 }

@@ -33,7 +33,7 @@
                     android:layout_width="385dp"
                     android:layout_height="300dp"
                     android:adjustViewBounds="true"
-                    android:scaleType="centerCrop"
+                    android:scaleType="fitCenter"
                     android:layout_marginBottom="15dp"
                     app:layout_constraintTop_toBottomOf="@+id/tvNombrePersonaje"
                     app:layout_constraintStart_toStartOf="@id/layoutPersonaje"
@@ -42,7 +42,7 @@
             </ImageView>
 
             <LinearLayout
-                    android:id="@+id/layoutAlias"
+                    android:id="@+id/layoutProfesion"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="8dp"
@@ -53,40 +53,40 @@
                 <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/alias"
+                        android:text="@string/profesion"
                         android:textSize="17sp"
                         android:textStyle="bold"
                         android:layout_marginEnd="10dp"/>
 
                 <TextView
-                        android:id="@+id/tvAliasPersonaje"
+                        android:id="@+id/tvProfesionPersonaje"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="17sp"
-                        tools:text="alias"/>
+                        tools:text="brujo"/>
             </LinearLayout>
             <LinearLayout
-                    android:id="@+id/layoutRaza"
+                    android:id="@+id/layoutNacion"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="8dp"
-                    app:layout_constraintTop_toBottomOf="@+id/layoutAlias"
+                    app:layout_constraintTop_toBottomOf="@+id/layoutProfesion"
                     app:layout_constraintStart_toStartOf="@id/layoutPersonaje"
                     app:layout_constraintEnd_toEndOf="@id/layoutPersonaje">
                 <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/raza"
+                        android:text="@string/nacion"
                         android:textSize="17sp"
                         android:textStyle="bold"
                         android:layout_marginEnd="10dp"/>
 
                 <TextView
-                        android:id="@+id/tvRazaPersonaje"
+                        android:id="@+id/tvNacionPersonaje"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="17sp"
-                        tools:text="raza"/>
+                        tools:text="Rivia"/>
 
             </LinearLayout>
 
@@ -98,7 +98,7 @@
                     android:textSize="17sp"
                     android:textStyle="italic"
                     tools:text="Geralt de Rivia es un brujo, cazador de monstruos mutado con cabello blanco y habilidades sobrenaturales. Destaca por su destreza en la lucha, su armadura distintiva y su naturaleza pragmática. Geralt se enfrenta a dilemas morales, desarrolla relaciones con otros personajes y navega por un mundo lleno de magia, conflictos y criaturas sobrenaturales. Su historia se caracteriza por una combinación de acción, drama y decisiones impactantes."
-                    app:layout_constraintTop_toBottomOf="@+id/layoutRaza"
+                    app:layout_constraintTop_toBottomOf="@+id/layoutNacion"
                     app:layout_constraintStart_toStartOf="@id/layoutPersonaje"
                     app:layout_constraintEnd_toEndOf="@id/layoutPersonaje"/>
 

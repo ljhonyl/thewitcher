@@ -17,7 +17,7 @@ class PersonajeViewHolder(view:View): ViewHolder(view){
      */
     fun render(personaje:Personaje){
         binding.tvNombreItem.text=personaje.nombre
-        binding.tvAliasItem.text=personaje.alias
+        binding.tvProfesionItem.text=personaje.profesion
         Glide.with(binding.ivFotoItem.context).load(personaje.imagen).into(binding.ivFotoItem)
     }
 }

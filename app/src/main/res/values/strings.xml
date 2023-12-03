@@ -7,9 +7,9 @@
     <string name="addPersonaje">Añadir Personaje</string>
     <string name="registrarse">Registrarse</string>
     <string name="nombre">Nombre</string>
-    <string name="alias">Alias</string>
-    <string name="raza">Raza</string>
-    <string name="descripcion">Descripcion</string>
+    <string name="profesion">Profesión</string>
+    <string name="nacion">Nación</string>
+    <string name="descripcion">Descripción</string>
     <string name="imagen">Imagen</string>
     <string name="seleccionarImagen">Seleccionar Imagen</string>
     <string name="eliminarPersonaje">Eliminar Personaje</string>

@@ -1,3 +1,4 @@
+
 package es.tiernoparla.thewitcher.vista
 
 import android.content.Intent
@@ -53,22 +54,23 @@ class InsercionActivity : AppCompatActivity() {
      */
     fun insertarPersonaje(){
         var msg="Los campos nombre, descripción e imagen no pueden estar vacíos"
+        var msg2="¿Añadir Personaje?"
+        var msgToast="Personaje insertado"
         binding.btnInsertar.setOnClickListener(){
             if(binding.etNombreInsertar.text.isNotEmpty() && binding.etDescripcionInsertar.text.isNotEmpty() && binding.tvImgInsertada.text.isNotEmpty()){
                 val builder = AlertDialog.Builder(this)
                 builder.setTitle(Auxiliar.TIPO_AVISO)
-                    .setMessage(msg)
+                    .setMessage(msg2)
                     .setPositiveButton(Auxiliar.OK) { _, _ -> //inserto si pulso en ok
                         val nombre=binding.etNombreInsertar.text.toString()
-                        val alias=binding.etAliasInsertar.text.toString()
-                        val raza=binding.etRazaInsertar.text.toString()
+                        val profesion=binding.etProfesionInsertar.text.toString()
+                        val nacion=binding.etNacionInsertar.text.toString()
                         val descripcion=binding.etDescripcionInsertar.text.toString()
                         val imagen=binding.tvImgInsertada.text.toString()
-                        val personaje=Personaje(nombre,alias,raza,descripcion,imagen)
+                        val personaje=Personaje(nombre,profesion,nacion,descripcion,imagen)
 
                         personajeVistaModelo.insertarPersonaje(personaje)
-                        msg="Personaje insertado"
-                        Toast.makeText(this,msg,Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this,msgToast,Toast.LENGTH_SHORT).show()
                     }.setNegativeButton(Auxiliar.CANCELAR) { dialog, _ ->
                         dialog.dismiss()
                     }
@@ -90,8 +92,8 @@ class InsercionActivity : AppCompatActivity() {
         binding.btnInsertar.setOnClickListener(){
             if(binding.etNombreInsertar.text.isNotEmpty() && binding.etDescripcionInsertar.text.isNotEmpty() && binding.tvImgInsertada.text.isNotEmpty()){
                 val nombre=binding.etNombreInsertar.text.toString()
-                val alias=binding.etAliasInsertar.text.toString()
-                val raza=binding.etRazaInsertar.text.toString()
+                val alias=binding.etProfesionInsertar.text.toString()
+                val raza=binding.etNacionInsertar.text.toString()
                 val descripcion=binding.etDescripcionInsertar.text.toString()
                 val imagen=binding.tvImgInsertada.text.toString()
                 val personaje=Personaje(nombre,alias,raza,descripcion,imagen)

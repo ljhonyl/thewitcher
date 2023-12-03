@@ -51,16 +51,16 @@
                 app:layout_constraintStart_toStartOf="@id/layoutInsertar"/>
 
         <TextView
-                android:id="@+id/tvAliasInsertar"
+                android:id="@+id/tvProfesionInsertar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/alias"
+                android:text="@string/profesion"
                 android:textSize="15sp"
                 app:layout_constraintTop_toBottomOf="@id/etNombreInsertar"
                 app:layout_constraintStart_toStartOf="@id/layoutInsertar"/>
 
         <EditText
-                android:id="@+id/etAliasInsertar"
+                android:id="@+id/etProfesionInsertar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:imeOptions="actionDone"
@@ -69,27 +69,27 @@
                 android:maxLines="1"
                 android:maxLength="50"
                 tools:text="HOLA"
-                app:layout_constraintTop_toBottomOf="@id/tvAliasInsertar"
+                app:layout_constraintTop_toBottomOf="@id/tvProfesionInsertar"
                 app:layout_constraintStart_toStartOf="@id/layoutInsertar"/>
 
         <TextView
-                android:id="@+id/tvRazaInsertar"
+                android:id="@+id/tvNacionInsertar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/raza"
+                android:text="@string/nacion"
                 android:textSize="15sp"
-                app:layout_constraintTop_toBottomOf="@id/etAliasInsertar"
+                app:layout_constraintTop_toBottomOf="@id/etProfesionInsertar"
                 app:layout_constraintStart_toStartOf="@id/layoutInsertar"/>
 
         <EditText
-                android:id="@+id/etRazaInsertar"
+                android:id="@+id/etNacionInsertar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:imeOptions="actionDone"
                 android:textSize="15sp"
                 android:singleLine="true"
                 android:maxLength="50"
-                app:layout_constraintTop_toBottomOf="@id/tvRazaInsertar"
+                app:layout_constraintTop_toBottomOf="@id/tvNacionInsertar"
                 app:layout_constraintStart_toStartOf="@id/layoutInsertar"/>
 
         <TextView
@@ -98,7 +98,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/descripcion"
                 android:textSize="15sp"
-                app:layout_constraintTop_toBottomOf="@id/etRazaInsertar"
+                app:layout_constraintTop_toBottomOf="@id/etNacionInsertar"
                 app:layout_constraintStart_toStartOf="@id/layoutInsertar"/>
 
         <EditText

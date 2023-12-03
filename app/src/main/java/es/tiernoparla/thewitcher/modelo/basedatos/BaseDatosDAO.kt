@@ -10,7 +10,7 @@ import es.tiernoparla.thewitcher.modelo.FicheroMock.FicheroMock
 
 class BaseDatosDAO (context : Context?, name : String?, factory : SQLiteDatabase.CursorFactory?, version: Int) : SQLiteOpenHelper(context, name, factory, version) {
 
-    val crearTablaPersonajes="CREATE TABLE Personajes(Codigo integer primary key autoincrement, Nombre Text, Alias, Raza text, Descripcion text, Imagen text)"
+    val crearTablaPersonajes="CREATE TABLE Personajes(Codigo integer primary key autoincrement, Nombre Text, Profesion text, Nacion text, Descripcion text, Imagen text)"
 
     override fun onCreate(db: SQLiteDatabase?) {
         db?.execSQL(crearTablaPersonajes)
@@ -30,12 +30,12 @@ class BaseDatosDAO (context : Context?, name : String?, factory : SQLiteDatabase
             do {
                 val codigo=cursor.getInt(cursor.getColumnIndexOrThrow("Codigo"))
                 val nombre = cursor.getString(cursor.getColumnIndexOrThrow("Nombre"))
-                val alias = cursor.getString(cursor.getColumnIndexOrThrow("Alias"))
-                val raza = cursor.getString(cursor.getColumnIndexOrThrow("Raza"))
+                val profesion = cursor.getString(cursor.getColumnIndexOrThrow("Profesion"))
+                val nacion = cursor.getString(cursor.getColumnIndexOrThrow("Nacion"))
                 val descripcion = cursor.getString(cursor.getColumnIndexOrThrow("Descripcion"))
                 val imagen = cursor.getString(cursor.getColumnIndexOrThrow("Imagen"))
 
-                val personaje = Personaje(codigo,nombre, alias, raza, descripcion, imagen)
+                val personaje = Personaje(codigo,nombre, profesion, nacion, descripcion, imagen)
                 listaPersonajes.add(personaje)
             } while (cursor.moveToNext())
         }
@@ -71,8 +71,8 @@ class BaseDatosDAO (context : Context?, name : String?, factory : SQLiteDatabase
     private fun generarContentValues(personaje: Personaje): ContentValues{
         val cv = ContentValues()
         cv.put("Nombre", personaje.nombre)
-        cv.put("Alias", personaje.alias)
-        cv.put("Raza", personaje.raza)
+        cv.put("Profesion", personaje.profesion)
+        cv.put("Nacion", personaje.nacion)
         cv.put("Descripcion", personaje.descripcion)
         cv.put("Imagen", personaje.imagen)
         return  cv

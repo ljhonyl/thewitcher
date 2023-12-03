@@ -1,3 +1,4 @@
+
 package es.tiernoparla.thewitcher.vista
 
 import android.content.Intent
@@ -41,8 +42,8 @@ class PersonajeActivity : AppCompatActivity() {
         if(personaje!=null){
             binding.tvNombrePersonaje.text= personaje?.nombre
             Glide.with(this).load(personaje?.imagen).into(binding.ivFotoPersonaje)
-            binding.tvAliasPersonaje.text= personaje?.alias
-            binding.tvRazaPersonaje.text=personaje?.raza
+            binding.tvProfesionPersonaje.text= personaje?.profesion
+            binding.tvNacionPersonaje.text=personaje?.nacion
             binding.tvDescripcionPersonaje.text=personaje?.descripcion
         }
     }
@@ -51,7 +52,7 @@ class PersonajeActivity : AppCompatActivity() {
      * Eliminar siguiendo arquitectura MVVM
      */
     private fun eliminarPersonaje(){
-        val msg="¿Añadir el personaje?"
+        val msg="¿Eliminar el personaje?"
         binding.fabEliminarPersonaje.setOnClickListener() {
             val builder = AlertDialog.Builder(this)
             builder.setTitle(Auxiliar.TIPO_AVISO)

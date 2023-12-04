@@ -28,7 +28,7 @@ class LoginActivity : AppCompatActivity() {
      * Lógica que se ejecutará al querer iniciar sesión
      */
     private fun iniciarSesion(){
-        binding.btnLogin.setOnClickListener(){
+        binding.btnLogin.setOnClickListener {
             if (binding.etUsuario.text.isNotEmpty() && binding.etPassword.text.isNotEmpty()){
                 FirebaseAuth.getInstance().signInWithEmailAndPassword(binding.etUsuario.text.toString(),binding.etPassword.text.toString()).addOnCompleteListener {
                     if(it.isSuccessful){
@@ -51,7 +51,7 @@ class LoginActivity : AppCompatActivity() {
      * Lógica que se ejecutará al querer registrarse
      */
     private fun registrase(){
-        binding.etRegistrarse.setOnClickListener(){
+        binding.etRegistrarse.setOnClickListener {
             if (binding.etUsuario.text.isNotEmpty() && binding.etPassword.text.isNotEmpty()){
                 FirebaseAuth.getInstance().createUserWithEmailAndPassword(binding.etUsuario.text.toString(),binding.etPassword.text.toString()).addOnCompleteListener {
                     if(it.isSuccessful){
@@ -75,7 +75,7 @@ class LoginActivity : AppCompatActivity() {
      * Cambio de vista a la vista del menú
      */
     private fun mostrarMenu(){
-        val intent:Intent=Intent(this, MenuActivity::class.java)
+        val intent =Intent(this, MenuActivity::class.java)
         startActivity(intent)
         this.finish()
     }

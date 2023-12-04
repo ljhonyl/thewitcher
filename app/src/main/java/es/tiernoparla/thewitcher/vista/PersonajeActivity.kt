@@ -4,7 +4,6 @@ package es.tiernoparla.thewitcher.vista
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import com.bumptech.glide.Glide
@@ -38,7 +37,7 @@ class PersonajeActivity : AppCompatActivity() {
      * de los extras que se le pasó en la vista anterior
      */
     private fun cargarDetallesPersonajes(){
-        personaje=intent.getParcelableExtra<Personaje>("personaje")
+        personaje=intent.getParcelableExtra("personaje")
         if(personaje!=null){
             binding.tvNombrePersonaje.text= personaje?.nombre
             Glide.with(this).load(personaje?.imagen).into(binding.ivFotoPersonaje)
@@ -53,7 +52,7 @@ class PersonajeActivity : AppCompatActivity() {
      */
     private fun eliminarPersonaje(){
         val msg="¿Eliminar el personaje?"
-        binding.fabEliminarPersonaje.setOnClickListener() {
+        binding.fabEliminarPersonaje.setOnClickListener {
             val builder = AlertDialog.Builder(this)
             builder.setTitle(Auxiliar.TIPO_AVISO)
                 .setMessage(msg)
@@ -76,7 +75,7 @@ class PersonajeActivity : AppCompatActivity() {
      * Método por el cual se eliminara el personaje
      */
     private fun eliminar(){
-        binding.fabEliminarPersonaje.setOnClickListener(){
+        binding.fabEliminarPersonaje.setOnClickListener {
             val db=BaseDatosDAO(this,"Personajes",null,1)
             db.eliminarPersonaje(personaje!!)
             onBackPressed()

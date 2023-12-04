@@ -29,7 +29,7 @@ class InsercionActivity : AppCompatActivity() {
         PersonajeVistaModeloFactory(BaseDatosDAO(this, "Personajes", null, 1))
     }
     //variable que permitirá manejar la actividad de seleccionar imagenes
-    val pickMedia=registerForActivityResult(PickVisualMedia()){uriImagen->
+    private val pickMedia=registerForActivityResult(PickVisualMedia()){uriImagen->
         if (uriImagen!=null) {
             binding.tvImgInsertada.text = uriImagen.toString()
         }
@@ -39,7 +39,7 @@ class InsercionActivity : AppCompatActivity() {
         binding=ActivityInsercionBinding.inflate(layoutInflater)
         setContentView(binding.root)
         seleccionarImagen()
-        binding.btnInsertar.setOnClickListener(){
+        binding.btnInsertar.setOnClickListener {
             verificarPermisos()
         }
     }
@@ -94,8 +94,8 @@ class InsercionActivity : AppCompatActivity() {
      * Logica de la selección de una imagen.
      * Su uri se mostrará en el textView de imagenInsertada
      */
-    fun seleccionarImagen(){
-        binding.btnSeleccionarImagen.setOnClickListener(){
+    private fun seleccionarImagen(){
+        binding.btnSeleccionarImagen.setOnClickListener {
             pickMedia.launch(PickVisualMediaRequest(PickVisualMedia.ImageOnly))
         }
     }
@@ -104,10 +104,10 @@ class InsercionActivity : AppCompatActivity() {
      * Insercion de un nuevo personaje sigueindo arquitetctura MVVM
      * Nose llama a la base de datos, sino que se llama al viewModel
      */
-    fun insertarPersonaje(){
-        var msg="Los campos nombre, descripción e imagen no pueden estar vacíos"
-        var msg2="¿Añadir Personaje?"
-        var msgToast="Personaje insertado"
+    private fun insertarPersonaje(){
+        val msg="Los campos nombre, descripción e imagen no pueden estar vacíos"
+        val msg2="¿Añadir Personaje?"
+        val msgToast="Personaje insertado"
             if(binding.etNombreInsertar.text.isNotEmpty() && binding.etDescripcionInsertar.text.isNotEmpty() && binding.tvImgInsertada.text.isNotEmpty()){
                 val builder = AlertDialog.Builder(this)
                 builder.setTitle(Auxiliar.TIPO_AVISO)
@@ -140,7 +140,7 @@ class InsercionActivity : AppCompatActivity() {
      */
     fun insertar(){
         var msg="Los campos nombre, descripción e imagen no pueden estar vacíos"
-        binding.btnInsertar.setOnClickListener(){
+        binding.btnInsertar.setOnClickListener {
             if(binding.etNombreInsertar.text.isNotEmpty() && binding.etDescripcionInsertar.text.isNotEmpty() && binding.tvImgInsertada.text.isNotEmpty()){
                 val nombre=binding.etNombreInsertar.text.toString()
                 val alias=binding.etProfesionInsertar.text.toString()

@@ -10,7 +10,7 @@ import es.tiernoparla.thewitcher.modelo.FicheroMock.FicheroMock
 
 class BaseDatosDAO (context : Context?, name : String?, factory : SQLiteDatabase.CursorFactory?, version: Int) : SQLiteOpenHelper(context, name, factory, version) {
 
-    val crearTablaPersonajes="CREATE TABLE Personajes(Codigo integer primary key autoincrement, Nombre Text, Profesion text, Nacion text, Descripcion text, Imagen text)"
+    private val crearTablaPersonajes="CREATE TABLE Personajes(Codigo integer primary key autoincrement, Nombre Text, Profesion text, Nacion text, Descripcion text, Imagen text)"
 
     override fun onCreate(db: SQLiteDatabase?) {
         db?.execSQL(crearTablaPersonajes)

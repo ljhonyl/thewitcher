@@ -10,7 +10,7 @@ import es.tiernoparla.thewitcher.modelo.Personaje
  * Clase que se encarga de asociar el diseño de la vista del item(item_personaje.xml)
  */
 class PersonajeViewHolder(view:View): ViewHolder(view){
-    val binding= ItemPersonajeBinding.bind(view)
+    private val binding= ItemPersonajeBinding.bind(view)
 
     /**
      * Muestra los datos del personaje en las propiedades correspondientes
